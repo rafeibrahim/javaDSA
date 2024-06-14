@@ -2,6 +2,7 @@ package javaDSA;
 
 public class StringUpperCase {
 	
+	//code used in the class
 	public static String printUpperCaseClassLogic (String st) {
 		StringBuilder sb = new StringBuilder("");
 		sb.append(Character.toUpperCase(st.charAt(0)));
@@ -19,6 +20,8 @@ public class StringUpperCase {
 		return sb.toString();
 	}
 	
+	
+	// my approach
 	public static void printUpperCase (String st) {
 		StringBuilder sb = new StringBuilder("");
 		sb.append(Character.toUpperCase(st.charAt(0)));
