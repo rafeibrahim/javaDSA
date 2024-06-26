@@ -17,8 +17,8 @@ public class LastOccurence {
 	}
 	
 	public static void main(String args[]) {
-		int arr[] = {8, 3, 2, 9, 5, 10, 2, 5, 2};
-		System.out.println(lastOccurence(arr, 2, arr.length-1));
+		int arr[] = {8, 3, 6, 9, 5, 10, 2, 5, 3};
+		System.out.println(lastOccurence(arr, 5, arr.length-1));
 	}
 
 }
