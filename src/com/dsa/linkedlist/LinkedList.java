@@ -183,6 +183,34 @@ public class LinkedList {
 		System.out.println("null");
 	}
 	
+	//my code search iterative in LL
+//	public int search(int key) {
+//		Node temp = head;
+//		
+//		for (int i=0; i<size; i++) {
+//			if(temp.data == key) {
+//				return i;
+//			}
+//			temp = temp.next;
+//		}
+//		
+//		return -1;
+//	}
+	
+	public int itrSearch(int key) {
+		Node temp = head;
+		int i = 0;
+		
+		while (temp != null) {
+			if (temp.data == key) {
+				return i;
+			}
+			temp = temp.next;
+			i++;
+		}
+		return -1;
+	}
+	
 	
 	public static void main (String args[]) {
 		LinkedList ll = new LinkedList();
@@ -214,14 +242,17 @@ public class LinkedList {
 //		System.out.println(ll.head + " " +  ll.tail);
 //		ll.removeFirst();
 		
-		System.out.println(ll.removeLast());
-		ll.print();
-		ll.removeLast(); ll.removeLast(); ll.removeLast();
-		ll.print();
-		ll.removeLast();
-		ll.print();
-		ll.removeLast();
-		ll.print();
+//		System.out.println(ll.removeLast());
+//		ll.print();
+//		ll.removeLast(); ll.removeLast(); ll.removeLast();
+//		ll.print();
+//		ll.removeLast();
+//		ll.print();
+//		ll.removeLast();
+//		ll.print();
+		
+		int index = ll.itrSearch(5);
+		System.out.println(index);
 	}
 }
 
