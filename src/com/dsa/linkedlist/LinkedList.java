@@ -211,15 +211,60 @@ public class LinkedList {
 		return -1;
 	}
 	
-	public int recSearch (int key, Node head, int i) {
+	// my code for recSearch with index i
+//	public int recSearch (int key, Node head, int i) {
+//		if (head == null) {
+//			return -1;
+//		}
+//		
+//		if (head.data == key) {
+//			return i;
+//		}
+//		return recSearch(key, head.next, ++i);
+//	}
+	
+	//my implementation for class logic
+	
+//	public int recSearch (int key, Node head) {
+//		if (head == null) {
+//			return -1;
+//		}
+//		
+//		if (head.data == key) {
+//			return 0;
+//		}
+//		
+//		int index = recSearch(key, head.next);
+//		if (index != -1) {
+//			return ++index;
+//		}
+//		return index;
+//	}
+	
+	// if we want to pass only key to function for recursive 
+	// search we will need a helper function which will then 
+	// itself recursively to find the index for given key
+	
+	public static int helper(Node head, int key) {
+		//base case
 		if (head == null) {
 			return -1;
 		}
 		
 		if (head.data == key) {
-			return i;
+			return 0;
 		}
-		return recSearch(key, head.next, ++i);
+		
+		int idx = helper(head.next, key);
+		
+		if (idx == -1) {
+			return -1;
+		}
+		return ++idx;
+	}
+	
+	public int recSearch (int key) {
+		return helper(head, key);
 	}
 	
 	
@@ -265,7 +310,7 @@ public class LinkedList {
 //		int index = ll.itrSearch(5);
 //		System.out.println(index);
 		
-		System.out.println(ll.recSearch(6, head, 0));
+		System.out.println(ll.recSearch(10));
 	}
 }
 
