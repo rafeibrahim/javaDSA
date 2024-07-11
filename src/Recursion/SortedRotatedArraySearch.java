@@ -39,6 +39,10 @@ public class SortedRotatedArraySearch {
 		int index = searchMyAttempt(arr, 0, arr.length-1, 3);
 		System.out.println(index);
 		
+		int arr1[] = {4, 5, 6, 7, 0, 1, 2};
+		int index1 = searchMyAttempt(arr1, 0, arr1.length-1, 0);
+		System.out.println(index1);
+		
 		
 	}
 }
