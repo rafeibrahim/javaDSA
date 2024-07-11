@@ -184,7 +184,7 @@ public class LinkedList {
 	}
 	
 	//my code search iterative in LL
-//	public int search(int key) {
+//	public int itrSearch(int key) {
 //		Node temp = head;
 //		
 //		for (int i=0; i<size; i++) {
@@ -209,6 +209,17 @@ public class LinkedList {
 			i++;
 		}
 		return -1;
+	}
+	
+	public int recSearch (int key, Node head, int i) {
+		if (head == null) {
+			return -1;
+		}
+		
+		if (head.data == key) {
+			return i;
+		}
+		return recSearch(key, head.next, ++i);
 	}
 	
 	
@@ -251,8 +262,10 @@ public class LinkedList {
 //		ll.removeLast();
 //		ll.print();
 		
-		int index = ll.itrSearch(5);
-		System.out.println(index);
+//		int index = ll.itrSearch(5);
+//		System.out.println(index);
+		
+		System.out.println(ll.recSearch(6, head, 0));
 	}
 }
 
