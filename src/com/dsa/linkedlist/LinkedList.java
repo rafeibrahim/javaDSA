@@ -266,6 +266,41 @@ public class LinkedList {
 	public int recSearch (int key) {
 		return helper(head, key);
 	}
+
+
+// my version of reversing LL with creating new Node everytime
+//	public void reverse() {
+//		Node tempNode = null;
+//		Node currNode = head;
+//		Node startNode= null;
+//		
+//		tail = head;
+//		for (int i=0; i<size; i++) {
+//			System.out.print(currNode.data + " ");
+//			//access to the current node
+//			tempNode = new Node(currNode.data);
+//			tempNode.next = startNode;
+//			startNode = tempNode;
+//			currNode = currNode.next;
+//		}
+//		head = startNode;
+//		System.out.println();
+//	}
+	
+	public void reverse() {//O(n)
+		Node prev = null;
+		Node curr = tail = head;
+		Node next;
+		
+		while(curr != null) {
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+		
+		head = prev;
+	}
 	
 	
 	public static void main (String args[]) {
@@ -310,7 +345,10 @@ public class LinkedList {
 //		int index = ll.itrSearch(5);
 //		System.out.println(index);
 		
-		System.out.println(ll.recSearch(10));
+//		System.out.println(ll.recSearch(10));
+		ll.reverse();
+		ll.print();
+		
 	}
 }
 
