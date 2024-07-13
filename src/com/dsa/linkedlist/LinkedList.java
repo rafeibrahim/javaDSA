@@ -362,9 +362,53 @@ public class LinkedList {
 		
 		prev.next = prev.next.next;
 		return;
+	}
+	
+	public boolean isPalindrome() {
+		// finding size
+		Node temp = head;
+		int sz = 0;
 		
+		while (temp != null) {
+			temp = temp.next;
+			sz++;
+		}
 		
+		//finding midIndex of LL
+		int midIndex = 1 + (size - 1)/2;
 		
+		//reverse LL from midIndex+1 to size
+		// finding node on midIndex
+		
+		Node midNode = head;
+		for (int i=1; i<midIndex; i++) {
+			midNode = midNode.next;
+		}
+		
+		//Reversing LL after midNode;
+		Node curr = midNode.next;
+		Node prev = null;
+		Node next = null;
+		tail = curr;
+		while (curr != null) {
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+		
+		//Joining midNode to the first node of reversed LL
+		
+		midNode.next = prev;
+		
+		//checking if LL is odd or even
+		
+		if (size%2 == 0) {
+			//if LL is even. traverse LL until. 
+			return true;
+		}
+		// LL is odd.
+		return true;
 	}
 	
 	
@@ -407,14 +451,22 @@ public class LinkedList {
 //		ll.removeLast();
 //		ll.print();
 		
-//		int index = ll.itrSearch(5);
+//		int index = ll.itrSearch
 //		System.out.println(index);
 		
 //		System.out.println(ll.recSearch(10));
 		//ll.reverse();
 		ll.print();
 		
-		ll.deleteNthFromEnd(3);
+//		ll.deleteNthFromEnd(3);
+//		ll.print();
+		ll.addLast(4);
+		ll.addLast(3);
+		ll.addLast(2);
+		ll.addLast(1);
+		
+		ll.print();
+		ll.isPalindrome();
 		ll.print();
 	}
 }
