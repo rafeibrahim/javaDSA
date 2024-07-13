@@ -302,6 +302,71 @@ public class LinkedList {
 		head = prev;
 	}
 	
+	//my code for removing nth element from Last
+//	public void deleteNthFromEnd (int n) {
+//		if (n == size) {
+//			removeFirst();
+//			return;
+//		}
+//		if (n == 1) {
+//			removeLast();
+//			return;
+//		}
+//		
+//		
+//		//assuming n is 1 based
+//		int idx = size - n + 1;
+//		System.out.println(idx);
+//		Node temp = head;
+//		
+//		
+//		for (int i=2; i<idx; i++) {
+//			
+//			temp = temp.next;
+//			System.out.println("i -> " + i + " node -> " + temp.data);
+//		}
+//		
+//		System.out.println(temp.data);
+//		// temp --> one node before node to be removed
+//		
+//		Node nextNode = temp.next;
+//		nextNode = nextNode.next;
+//		
+//		temp.next = nextNode;
+//	}
+	
+	public void deleteNthFromEnd(int n) {
+		//we have size available here as a property of LL
+		// but in a coding contest we have to calculate size ourself
+		
+		int sz = 0;
+		Node temp = head;
+		while (temp != null) {
+			sz++;
+			temp = temp.next;
+		}
+		
+		if (n == sz) {
+			head = head.next; //remove First operation
+			return;
+		}
+		
+		//sz-n
+		int i = 1;
+		int iToFind = sz-n;
+		Node prev = head;
+		while (i < iToFind) {
+			prev = prev.next;
+			i++;
+		}
+		
+		prev.next = prev.next.next;
+		return;
+		
+		
+		
+	}
+	
 	
 	public static void main (String args[]) {
 		LinkedList ll = new LinkedList();
@@ -346,9 +411,11 @@ public class LinkedList {
 //		System.out.println(index);
 		
 //		System.out.println(ll.recSearch(10));
-		ll.reverse();
+		//ll.reverse();
 		ll.print();
 		
+		ll.deleteNthFromEnd(3);
+		ll.print();
 	}
 }
 
