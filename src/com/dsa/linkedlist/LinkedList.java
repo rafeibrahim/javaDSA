@@ -401,14 +401,24 @@ public class LinkedList {
 		
 		midNode.next = prev;
 		
-		//checking if LL is odd or even
+		// we do not need to check whether LL has even or odd nodes 
+		// bcs in both cases we will start our second pointer from 
+		// node (mid+1) until it becomes null;
+		Node i = head;
+		Node j = midNode.next;
 		
-		if (size%2 == 0) {
-			//if LL is even. traverse LL until. 
+			//if LL is even. 
+			// traverse LL from si to mid and mid+1 to ei 
+			System.out.println("LL is even");
+			while (j != null) {
+				if (i.data != j.data) {
+					return false;
+				}
+				j = j.next;
+				i = i.next;
+			}
+			
 			return true;
-		}
-		// LL is odd.
-		return true;
 	}
 	
 	
@@ -460,13 +470,14 @@ public class LinkedList {
 		
 //		ll.deleteNthFromEnd(3);
 //		ll.print();
+		ll.addLast(5);
 		ll.addLast(4);
 		ll.addLast(3);
 		ll.addLast(2);
-		ll.addLast(1);
+		//ll.addLast(9);
 		
 		ll.print();
-		ll.isPalindrome();
+		System.out.println(ll.isPalindrome());
 		ll.print();
 	}
 }
