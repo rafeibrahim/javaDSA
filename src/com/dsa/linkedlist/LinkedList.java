@@ -364,61 +364,75 @@ public class LinkedList {
 		return;
 	}
 	
-	public boolean isPalindrome() {
-		// finding size
-		Node temp = head;
-		int sz = 0;
+//	public boolean isPalindrome() {
+//		// finding size
+//		Node temp = head;
+//		int sz = 0;
+//		
+//		while (temp != null) {
+//			temp = temp.next;
+//			sz++;
+//		}
+//		
+//		//finding midIndex of LL
+//		int midIndex = 1 + (size - 1)/2;
+//		
+//		//reverse LL from midIndex+1 to size
+//		// finding node on midIndex
+//		
+//		Node midNode = head;
+//		for (int i=1; i<midIndex; i++) {
+//			midNode = midNode.next;
+//		}
+//		
+//		//Reversing LL after midNode;
+//		Node curr = midNode.next;
+//		Node prev = null;
+//		Node next = null;
+//		tail = curr;
+//		while (curr != null) {
+//			next = curr.next;
+//			curr.next = prev;
+//			prev = curr;
+//			curr = next;
+//		}
+//		
+//		//Joining midNode to the first node of reversed LL
+//		
+//		midNode.next = prev;
+//		
+//		// we do not need to check whether LL has even or odd nodes 
+//		// bcs in both cases we will start our second pointer from 
+//		// node (mid+1) until it becomes null;
+//		Node i = head;
+//		Node j = midNode.next;
+//		
+//			//if LL is even. 
+//			// traverse LL from si to mid and mid+1 to ei 
+//			System.out.println("LL is even");
+//			while (j != null) {
+//				if (i.data != j.data) {
+//					return false;
+//				}
+//				j = j.next;
+//				i = i.next;
+//			}
+//			
+//			return true;
+//	}
+	
+	
+	// class code for finding mid of a LL
+	public Node findMid(Node head) {
+		Node slow = head; 
+		Node fast = head;
 		
-		while (temp != null) {
-			temp = temp.next;
-			sz++;
+		while (fast != null && fast.next != null) {
+			slow = slow.next; //+1
+			fast = fast.next.next; //+2
 		}
 		
-		//finding midIndex of LL
-		int midIndex = 1 + (size - 1)/2;
-		
-		//reverse LL from midIndex+1 to size
-		// finding node on midIndex
-		
-		Node midNode = head;
-		for (int i=1; i<midIndex; i++) {
-			midNode = midNode.next;
-		}
-		
-		//Reversing LL after midNode;
-		Node curr = midNode.next;
-		Node prev = null;
-		Node next = null;
-		tail = curr;
-		while (curr != null) {
-			next = curr.next;
-			curr.next = prev;
-			prev = curr;
-			curr = next;
-		}
-		
-		//Joining midNode to the first node of reversed LL
-		
-		midNode.next = prev;
-		
-		// we do not need to check whether LL has even or odd nodes 
-		// bcs in both cases we will start our second pointer from 
-		// node (mid+1) until it becomes null;
-		Node i = head;
-		Node j = midNode.next;
-		
-			//if LL is even. 
-			// traverse LL from si to mid and mid+1 to ei 
-			System.out.println("LL is even");
-			while (j != null) {
-				if (i.data != j.data) {
-					return false;
-				}
-				j = j.next;
-				i = i.next;
-			}
-			
-			return true;
+		return  slow; //slow is my midNode
 	}
 	
 	
