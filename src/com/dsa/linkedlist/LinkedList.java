@@ -169,7 +169,7 @@ public class LinkedList {
 		return size;
 	}
 	
-	public void print () {
+	public static void print () {
 		if (head == null) {
 			System.out.println("null");
 			return;
@@ -473,9 +473,24 @@ public class LinkedList {
 		return true;
 	}
 	
+	public static boolean isCycle() {
+		Node slow = head;
+		Node fast = head;
+		
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+			if (slow.data == fast.data) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	
 	public static void main (String args[]) {
-		LinkedList ll = new LinkedList();
+//		LinkedList ll = new LinkedList();
 //		ll.print();
 //		ll.addFirst(2);
 //		ll.addFirst(1);
@@ -527,13 +542,22 @@ public class LinkedList {
 //		ll.addLast(3);
 //		ll.addLast(2);
 		//ll.addLast(9);
-		ll.addLast(1);
-		ll.addLast(2);
-		ll.addLast(1);
-		//ll.addLast(1);
-		ll.print();
-		System.out.println(ll.checkPalindrome());
-		ll.print();
+//		ll.addLast(1);
+//		ll.addLast(2);
+//		ll.addLast(1);
+//		//ll.addLast(1);
+//		ll.print();
+//		System.out.println(ll.checkPalindrome());
+//		ll.print();
+		
+		//Creating test ll with a cycle 
+		head = new Node(1);
+		head.next = new Node(2);
+		head.next.next = new Node(3);
+		head.next.next.next = head;
+		// 1->2->3->1
+		System.out.println(isCycle());
+		print();
 	}
 }
 
