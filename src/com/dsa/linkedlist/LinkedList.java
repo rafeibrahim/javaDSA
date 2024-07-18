@@ -473,6 +473,8 @@ public class LinkedList {
 		return true;
 	}
 	
+	
+	// Floyds Cycle Finding Algorithm (Floyd's CFA
 	public static boolean isCycle() {
 		Node slow = head;
 		Node fast = head;
