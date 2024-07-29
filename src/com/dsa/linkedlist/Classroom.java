@@ -1,6 +1,9 @@
 package com.dsa.linkedlist;
 import java.util.LinkedList;
 
+//Java Collection Framework -> optimized
+// we get best time complexity functions 
+
 
 public class Classroom {
 	

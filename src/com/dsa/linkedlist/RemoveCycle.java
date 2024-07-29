@@ -86,6 +86,7 @@ public class RemoveCycle {
 	}
 	
 	public static void main(String args[]) {
+		LinkedList ll = new LinkedList();
 		LinkedList.head = new LinkedList.Node(1);
 		LinkedList.Node temp = new LinkedList.Node(2);
 		LinkedList.head.next = temp;
